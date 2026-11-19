@@ -1,4 +1,4 @@
-:root{--bg:#222222;--fg:#c2d8c4}
+:root{--bg:#222222;--fg:#afeadc}
 *{box-sizing:border-box;margin:0}
 [hidden]{display:none!important}
 html,body{height:100%;background:#222222;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
