@@ -1,7 +1,7 @@
-:root{--bg:#fff0e2;--fg:#821607}
+:root{--bg:#222222;--fg:#c2d8c4}
 *{box-sizing:border-box;margin:0}
 [hidden]{display:none!important}
-html,body{height:100%;background:#fff0e2;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#222222;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
 
 .screen{display:none;position:fixed;inset:0;flex-direction:column;align-items:center;gap:14px;
   padding:calc(28px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));
@@ -26,7 +26,7 @@ h1{font-size:40px;font-weight:800;letter-spacing:-.03em;margin-top:6px}
 #video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .frame{position:absolute;left:50%;top:50%;width:min(72vw,320px);aspect-ratio:1;transform:translate(-50%,-50%);
   border:3px solid #fff;border-radius:26px;overflow:hidden;box-shadow:0 0 0 100vmax rgba(0,0,0,.55)}
-.frame i{position:absolute;left:0;right:0;top:0;height:3px;background:#e3e3e3;box-shadow:0 0 14px #ffe14d;
+.frame i{position:absolute;left:0;right:0;top:0;height:3px;background:#c2d8c4;box-shadow:0 0 14px #c2d8c4;
   animation:sweep 1.8s ease-in-out infinite alternate}
 @keyframes sweep{to{top:calc(100% - 3px)}}
 .busy .frame{border-color:#ffe14d}
