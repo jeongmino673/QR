@@ -1,0 +1,60 @@
+:root{--bg:#eedcc8;--fg:#5d0703}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html,body{height:100%;background:#eedcc8;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
+
+.screen{display:none;position:fixed;inset:0;flex-direction:column;align-items:center;gap:14px;
+  padding:calc(28px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));
+  text-align:center;overflow-y:auto;background:var(--bg);color:var(--fg)}
+.screen.active{display:flex}
+.screen>:first-child{margin-top:auto}
+.screen>:last-child{margin-bottom:auto}
+
+.btn{width:100%;max-width:340px;padding:17px;border:0;border-radius:14px;font:inherit;font-size:17px;font-weight:700;
+  background:var(--fg);color:var(--bg);cursor:pointer}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+
+/* 메인: QR 파인더 패턴 모양의 마크 */
+.mark{width:64px;height:64px;border:9px solid var(--fg);border-radius:6px;position:relative}
+.mark::after{content:"";position:absolute;inset:9px;background:var(--fg)}
+h1{font-size:40px;font-weight:800;letter-spacing:-.03em;margin-top:6px}
+#home p{font-size:16px;line-height:1.7;opacity:.75;margin-bottom:18px}
+
+/* 카메라 + 스캔 */
+#scan{padding:0;background:#000;color:#fff;--bg:#000;--fg:#fff}
+#video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame{position:absolute;left:50%;top:50%;width:min(72vw,320px);aspect-ratio:1;transform:translate(-50%,-50%);
+  border:3px solid #fff;border-radius:26px;overflow:hidden;box-shadow:0 0 0 100vmax rgba(0,0,0,.55)}
+.frame i{position:absolute;left:0;right:0;top:0;height:3px;background:#e3e3e3;box-shadow:0 0 14px #ffe14d;
+  animation:sweep 1.8s ease-in-out infinite alternate}
+@keyframes sweep{to{top:calc(100% - 3px)}}
+.busy .frame{border-color:#ffe14d}
+.busy .frame i{animation:none;top:50%}
+#status{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(48px + env(safe-area-inset-bottom));
+  width:max-content;max-width:88vw;padding:11px 20px;border-radius:99px;background:rgba(0,0,0,.65);font-size:15px;font-weight:600}
+#stop{position:absolute;top:calc(14px + env(safe-area-inset-top));right:16px;width:auto;padding:9px 18px;font-size:15px;background:rgba(0,0,0,.55);border:0}
+
+/* 결과: 판정 색이 화면 전체를 채움 */
+#result[data-level=safe]{--bg:#1e691f;--fg:#fff}
+#result[data-level=caution]{--bg:#f2b00e;--fg:#1d1600}
+#result[data-level=danger]{--bg:#691f1e;--fg:#fff}
+#result>*{width:100%;max-width:340px}
+#title{font-size:32px;font-weight:800;letter-spacing:-.03em}
+#score{font-size:15px;font-weight:600;opacity:.85}
+.meter{height:10px;border-radius:9px;background:rgba(0,0,0,.2);overflow:hidden}
+#bar{display:block;height:100%;width:0;background:currentColor;border-radius:9px;transition:width .7s ease}
+#domain{font-size:22px;font-weight:700;word-break:break-all;margin-top:6px}
+#url{display:block;font-size:13px;line-height:1.5;word-break:break-all;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.16);text-align:left}
+#reasons{padding:0;text-align:left}
+#reasons li{list-style:none;padding:11px 14px;margin-bottom:8px;border-left:4px solid currentColor;border-radius:4px 10px 10px 4px;background:rgba(0,0,0,.16);font-size:15px;line-height:1.5}
+
+/* 위험 경고창 */
+#alert{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  padding:24px;background:#a8001a;color:#fff;text-align:center}
+#alert h2{font-size:34px;font-weight:800;letter-spacing:-.03em}
+#alert p{font-size:17px;line-height:1.6}
+#alert .btn{background:#fff;color:#a8001a;margin-top:12px}
+.sign{font-size:96px;line-height:1;animation:pulse .7s ease-in-out 4 alternate}
+@keyframes pulse{to{transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){.sign,.frame i{animation:none}}
