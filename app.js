@@ -1,6 +1,6 @@
 // ===== 설정 =====
-const API_URL = 'http://localhost:8000/analyze'; // 백엔드 주소 (배포 후 https 주소로 변경)
-const USE_MOCK = true; // true: 백엔드 없이 가짜 판정으로 화면 테스트 / false: 실제 API 호출
+const API_URL = 'https://jiyun9517.github.io/jiyun/'; // 백엔드 주소 (배포 후 https 주소로 변경)
+const USE_MOCK = false; // true: 백엔드 없이 가짜 판정으로 화면 테스트 / false: 실제 API 호출
 
 // 백엔드 응답 형식: { "label": "safe" | "caution" | "danger", "score": 0~1, "reasons": ["..."] }
 
