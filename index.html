@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QR 가드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1. 메인 화면 -->
+<section id="home" class="screen active">
+  <div class="mark"></div>
+  <h1>QR 가드</h1>
+  <p>QR을 비추면 AI가 링크를 열기 전에<br>안전한지 먼저 알려줘요.<br>사진은 저장되지 않아요.</p>
+  <button id="start" class="btn">QR 스캔 시작</button>
+</section>
+
+<!-- 2·3. 카메라 + 자동 인식 화면 -->
+<section id="scan" class="screen">
+  <video id="video" playsinline muted autoplay></video>
+  <div class="frame"><i></i></div>
+  <p id="status">카메라 준비 중…</p>
+  <button id="stop" class="btn ghost">닫기</button>
+</section>
+
+<!-- 4. 결과 화면 -->
+<section id="result" class="screen" data-level="safe">
+  <h2 id="title"></h2>
+  <p id="score"></p>
+  <div class="meter"><b id="bar"></b></div>
+  <p id="domain"></p>
+  <code id="url"></code>
+  <ul id="reasons"></ul>
+  <button id="again" class="btn">다시 스캔</button>
+  <button id="open" class="btn ghost">링크 열기</button>
+</section>
+
+<!-- 위험 경고창 -->
+<div id="alert" hidden role="alertdialog" aria-modal="true">
+  <div class="sign">⚠</div>
+  <h2>위험한 QR이에요</h2>
+  <p>피싱이나 악성 사이트일 가능성이 높아요.<br>링크를 열지 마세요.</p>
+  <button id="alert-close" class="btn">닫고 결과 보기</button>
+</div>
+
+<canvas id="canvas" hidden></canvas>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
