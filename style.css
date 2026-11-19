@@ -16,8 +16,7 @@ html,body{height:100%;background:#222222;font-family:"Pretendard Variable",Prete
 .btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
 
 /* 메인: QR 파인더 패턴 모양의 마크 */
-.mark{width:64px;height:64px;border:9px solid var(--fg);border-radius:6px;position:relative}
-.mark::after{content:"";position:absolute;inset:9px;background:var(--fg)}
+.logo{width:112px;height:112px;display:block}
 h1{font-size:40px;font-weight:800;letter-spacing:-.03em;margin-top:6px}
 #home p{font-size:16px;line-height:1.7;opacity:.75;margin-bottom:18px}
 
