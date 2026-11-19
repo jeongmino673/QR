@@ -1,7 +1,7 @@
-:root{--bg:#f7ecd4;--fg:#9b1d30}
+:root{--bg:#fff0e2;--fg:#9c1907}
 *{box-sizing:border-box;margin:0}
 [hidden]{display:none!important}
-html,body{height:100%;background:#f7ecd4;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#fff0e2;font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-tap-highlight-color:transparent}
 
 .screen{display:none;position:fixed;inset:0;flex-direction:column;align-items:center;gap:14px;
   padding:calc(28px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));
