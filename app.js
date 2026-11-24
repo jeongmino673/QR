@@ -71,7 +71,7 @@ async function onDetect(text) {
     res = { label: 'caution', score: null, noOpen: true,
             reasons: ['URL이 아닌 QR이에요', '내용: ' + text.slice(0, 80)] };
   } else {
-    try { res = await analyze(text); } catch { res = { error: true }; }
+    try { res = await analyze(text); } catch (e) { res = { error: true, msg: String(e) }; }
   }
   stopCamera();
   render(text, res);
@@ -89,7 +89,7 @@ async function analyze(url) {
       body: JSON.stringify({ url }),
       signal: ctrl.signal
     });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
+    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + (await r.text()).slice(0, 150));
     return await r.json();
   } finally { clearTimeout(timer); }
 }
@@ -127,7 +127,7 @@ function render(url, res) {
   $('url').textContent = url;
 
   $('reasons').replaceChildren();
-  (bad ? ['서버에 연결하지 못했어요. 네트워크와 API 주소를 확인해 주세요'] : res.reasons || [])
+  (bad ? ['서버에 연결하지 못했어요. 네트워크와 API 주소를 확인해 주세요', res.msg || ''] : res.reasons || [])
     .forEach(t => { const li = document.createElement('li'); li.textContent = t; $('reasons').append(li); });
 
   $('open').hidden = bad || !!res.noOpen;
